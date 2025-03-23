@@ -1,0 +1,10 @@
+@use "@/styles/variables" as *;
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $color-blue;
+    font-size: 64px;
+    padding: 8px;
+}

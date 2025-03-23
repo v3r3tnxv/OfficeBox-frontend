@@ -1,0 +1,33 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.navigation-mobile {
+    display: grid !important;
+    grid-template-columns: repeat(5, max-content);
+    background: $color-blue;
+    justify-items: center;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+    &__link {
+        display: grid;
+        align-items: center;
+        height: max-content;
+        width: max-content;
+        padding: 16px;
+
+        .navigation-mobile__image {
+            height: 36px;
+            width: 36px;
+        }
+    }
+
+    .active {
+        opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+    }
+}
