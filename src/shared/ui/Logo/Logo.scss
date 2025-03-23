@@ -1,0 +1,15 @@
+@use "@/styles/variables" as *;
+
+.logo {
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 16px;
+    place-items: center;
+
+    .logo__label {
+        font-size: 36px;
+        color: $color-blue;
+        font-family: "Bauhaus", sans-serif !important;
+    }
+}

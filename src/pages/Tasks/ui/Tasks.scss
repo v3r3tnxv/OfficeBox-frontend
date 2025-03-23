@@ -1,0 +1,69 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.tasks {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: max-content;
+    gap: 16px;
+    padding: 16px;
+
+    .tasks__input {
+        height: 24px;
+        background: $color-gray6;
+        border-radius: 16px;
+        padding: 0 8px;
+    }
+
+    .tasks__input--add {
+        height: 36px;
+        font-size: 24px;
+        font-weight: 600;
+        background: none;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    &__plate {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        padding: 8px;
+
+        .container {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+
+            .label {
+                margin-top: 0px;
+            }
+        }
+
+        .textarea {
+            height: 96px;
+        }
+
+        .tasks__select {
+            height: 24px;
+            background: $color-gray6;
+            border-radius: 16px;
+            padding: 0 8px;
+        }
+
+        .tasks__form-action {
+            justify-self: center;
+            width: max-content;
+        }
+
+        .label {
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        .tasks__form-action {
+            margin-top: 16px;
+        }
+    }
+}

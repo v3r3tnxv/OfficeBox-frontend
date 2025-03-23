@@ -1,0 +1,58 @@
+.layout {
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-template-rows: max-content 1fr;
+    width: 100vw;
+    height: 100vh;
+
+    .navigation {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .header {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .header-mobile {
+        display: none;
+    }
+
+    .main {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .navigation-mobile {
+        display: none !important;
+    }
+
+    // Медиазапрос для мобильных устройств
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // Один столбец для мобильных устройств
+        grid-template-rows: max-content 1fr max-content max-content; // Добавляем строку для навигации снизу
+
+        .navigation {
+            display: none;
+        }
+
+        .header {
+            display: none;
+        }
+
+        .header-mobile {
+            display: grid !important;
+        }
+
+        .main {
+            grid-column: 1;
+            grid-row: 2;
+            padding-bottom: 68px;
+        }
+
+        .navigation-mobile {
+            display: grid !important;
+        }
+    }
+}

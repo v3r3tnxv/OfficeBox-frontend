@@ -1,0 +1,26 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.Button {
+    display: grid;
+    place-content: center;
+    padding: 8px 16px;
+    height: 36px;
+    width: 100%;
+    border: none;
+    border-radius: 16px;
+    color: $color-white;
+    font-weight: 600;
+    font-size: 16px;
+    @include interactive-behavior(1, 1.2, 0.3s);
+}
+
+.Button_Accent {
+    background: $color-blue;
+}
+
+.Button_Cancel {
+    // background: linear-gradient(45deg, rgb(44, 44, 46), rgb(28, 28, 30));
+    backdrop-filter: blur(0px);
+    color: $color-blue;
+}

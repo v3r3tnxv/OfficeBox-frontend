@@ -1,0 +1,29 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.navigation {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: max-content;
+    background: $color-blue;
+    justify-items: center;
+    gap: 8px;
+
+    &__link {
+        height: max-content;
+        width: max-content;
+        padding: 16px;
+
+        .navigation__image {
+            height: 36px;
+            width: 36px;
+        }
+    }
+
+    .active {
+        opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+    }
+}
