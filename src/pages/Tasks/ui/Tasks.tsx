@@ -11,10 +11,10 @@ interface Task {
 }
 
 const initialTasks = [
-    { id: 1, title: "Сверстать страницу задач", status: "К выполнению", deadline: "2025-03-24" },
-    { id: 2, title: "Подключить API", status: "В процессе", deadline: "2025-03-24" },
-    { id: 3, title: "Сделать макет страницы заметок", status: "Тестирование", deadline: "2025-03-24" },
-    { id: 4, title: "Задача", status: "Готово", deadline: "2025-03-24" },
+    { id: 1, title: "Сверстать страницу задач", status: "К выполнению", deadline: "24.03.2025" },
+    { id: 2, title: "Подключить API", status: "В процессе", deadline: "24.03.2025" },
+    { id: 3, title: "Сделать макет страницы заметок", status: "Тестирование", deadline: "24.03.2025" },
+    { id: 4, title: "Задача", status: "Готово", deadline: "24.03.2025" },
 ];
 
 export const Tasks = () => {
@@ -22,28 +22,34 @@ export const Tasks = () => {
     const [editingTaskId, setEditingTaskId] = useState<string | number | null>(null);
     const [newTask, setNewTask] = useState({ title: "", status: "К выполнению", deadline: "" });
 
-    // Очистка данных новой задачи, если форма открыта для редактирования
     const handleSaveTask = (taskId: number | null) => {
         if (!newTask.title || !newTask.deadline) return;
 
         if (taskId) {
-            // Редактирование задачи
+            // Редактируем задачу
             setTasks(tasks.map(task =>
                 task.id === taskId ? { ...task, ...newTask } : task
             ));
         } else {
-            // Добавление новой задачи
+            // Добавляем новую задачу
             setTasks([...tasks, { id: Date.now(), ...newTask }]);
         }
 
-        setNewTask({ title: "", status: "К выполнению", deadline: "" }); // Очистка данных новой задачи
-        setEditingTaskId(null);
+        setNewTask({ title: "", status: "К выполнению", deadline: "" });
+        setEditingTaskId(null); // Закрытие формы редактирования
     };
 
     const handleEditTask = (task: Task) => {
-        setEditingTaskId(task.id === editingTaskId ? null : task.id);
-        setNewTask(task); // Подставляем данные задачи в форму редактирования
+        if (editingTaskId === task.id) {
+            // Оставляем форму открытой, если уже редактируем эту задачу
+            return;
+        } else {
+            // Открываем форму редактирования для выбранной задачи
+            setEditingTaskId(task.id);
+            setNewTask(task); // Заполняем форму данными задачи для редактирования
+        }
     };
+
 
     return (
         <main className="tasks">
@@ -55,7 +61,7 @@ export const Tasks = () => {
                     placeholder="Добавить задачу..."
                     onFocus={() => {
                         setEditingTaskId("new"); // Открываем форму для добавления
-                        setNewTask({ title: "", status: "К выполнению", deadline: "" }); // Очищаем данные новой задачи
+                        setNewTask({ title: "", status: "К выполнению", deadline: "" });
                     }}
                     onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
                 />
@@ -108,7 +114,6 @@ export const Tasks = () => {
             {tasks.map((task) => (
                 <Plate className="tasks__plate" key={task.id} onClick={() => handleEditTask(task)}>
                     {editingTaskId === task.id ? (
-                        // Форма редактирования внутри карточки
                         <>
                             <input
                                 className="tasks__input tasks__input--add"
@@ -157,7 +162,6 @@ export const Tasks = () => {
                             </div>
                         </>
                     ) : (
-                        // Обычный вид задачи
                         <>
                             <h1>{task.title}</h1>
                             <p>{task.status}</p>
