@@ -1,0 +1,56 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.files {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+
+    &__title {
+        text-align: center;
+        margin: 32px;
+    }
+
+    &__label {
+        width: 100%;
+        margin-top: 16px;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    &__list {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: 4px;
+        padding: 8px;
+        background: #fff;
+        border-radius: 16px;
+    }
+}
+
+.fileCard {
+    display: grid;
+    grid-template-rows: repeat(2, min-content);
+    row-gap: 4px;
+    width: 64px;
+    padding: 8px;
+    border-radius: 16px;
+    cursor: pointer;
+    @include interactive-behavior(1, 1.2, 0.3s);
+
+    &__icon {
+        width: 48px;
+        height: 48px;
+        grid-row: 1;
+        justify-self: center;
+    }
+
+    &__name {
+        grid-row: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

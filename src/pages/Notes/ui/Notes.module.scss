@@ -1,0 +1,78 @@
+@use "@/styles/variables" as *;
+
+.notes {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+}
+
+.noteCard {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__new {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+        cursor: pointer;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+
+    &__input {
+        padding: 8px 12px;
+        border: none;
+        background: none;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    &__checkbox {
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        border-radius: 50%;
+        border: 3px solid #ddd;
+
+        // Добавляем псевдоэлемент для галочки
+        &:checked {
+            border-color: $color-blue;
+
+            &::before {
+                content: "\2713"; // Unicode для галочки
+                font-size: 36px;
+                color: $color-blue; // Цвет галочки
+                position: absolute;
+                top: 0%;
+                left: 60%;
+                transform: translate(-50%, -50%); // Центрируем галочку
+            }
+        }
+    }
+
+    &__label {
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    &__label:hover {
+        text-decoration: underline;
+    }
+}

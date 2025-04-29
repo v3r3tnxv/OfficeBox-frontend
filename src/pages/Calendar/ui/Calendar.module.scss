@@ -1,0 +1,33 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.calendar {
+    display: grid;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+
+    &__title {
+        text-align: center;
+        margin: 32px;
+    }
+
+    &__months {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__button {
+        background: $color-blue;
+        color: #fff;
+
+        &:hover,
+        &:active {
+            background: $color-red;
+            color: #fff;
+        }
+    }
+}

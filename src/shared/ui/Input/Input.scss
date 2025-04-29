@@ -1,0 +1,14 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.Input {
+    display: grid;
+    padding: 8px 16px;
+    height: 36px;
+    width: 100%;
+    border: none;
+    border-radius: 16px;
+    background: #fff;
+    font-size: 16px;
+    @include interactive-behavior(1, 1.2, 0.3s);
+}

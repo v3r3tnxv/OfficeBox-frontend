@@ -1,0 +1,35 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.month {
+    padding: 16px;
+
+    &__title {
+        text-align: center;
+        margin: 32px;
+    }
+}
+
+.calendar__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.calendar__weekday {
+    text-align: center;
+    font-weight: 600;
+    color: #888;
+}
+
+.calendar__button {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+}
+
+.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}

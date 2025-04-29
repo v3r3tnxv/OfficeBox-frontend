@@ -1,0 +1,63 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.messenger {
+    display: grid;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+
+    &__title {
+        text-align: center;
+        margin: 32px;
+    }
+
+    &__button {
+        grid-auto-flow: column;
+        align-items: center;
+        gap: 8px;
+
+        img {
+            width: 20px;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        background: #fff;
+    }
+
+    &__list {
+        display: grid;
+        gap: 4px;
+    }
+}
+
+.chatCard {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows: repeat(2, max-content);
+    column-gap: 16px;
+    padding: 8px;
+    border-radius: 16px;
+    @include interactive-behavior(1, 1.2, 0.3s);
+
+    &__avatar {
+        width: 48px;
+        height: 48px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    &__name {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    &__info {
+        color: #888;
+        font-size: 14px;
+        grid-column: 2;
+        grid-row: 2;
+    }
+}

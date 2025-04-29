@@ -1,0 +1,296 @@
+@use "@/styles/variables" as *;
+
+.home {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: max-content;
+    gap: 16px;
+    padding: 16px;
+
+    .plate__label {
+        height: max-content;
+        font-size: 24px;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+
+    .plate--profile {
+        display: none;
+    }
+
+    .plate--notes {
+        grid-column: 1;
+        grid-row: 1;
+
+        .goal {
+            display: grid;
+            grid-auto-rows: max-content;
+            padding: 8px;
+            grid-template-columns: repeat(2, max-content);
+            gap: 4px;
+            align-items: center;
+
+            .goal__checkbox {
+                appearance: none;
+                width: 24px;
+                height: 24px;
+                position: relative;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                border-radius: 50%;
+                border: 3px solid #ddd;
+            }
+
+            .goal__checkbox:checked {
+                background-color: $color-blue;
+            }
+
+            .goal__checkbox:checked::after {
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 12px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+                left: 50%;
+                top: 50%;
+                transform-origin: center;
+                translate: -50% -60%;
+            }
+
+            .goal__checkbox:checked + .goal__label {
+                color: $color-gray;
+                text-decoration: line-through;
+            }
+
+            .goal__label {
+            }
+        }
+    }
+
+    .plate--calendar {
+        .calendar__row {
+            height: 40px;
+            padding: 8px;
+
+            .calendar__time {
+            }
+        }
+
+        .calendar__row:nth-child(odd) {
+            background: $color-gray6;
+        }
+
+        .calendar__row:nth-child(even) {
+            background: $color-gray5;
+        }
+    }
+
+    .plate--tasks {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        gap: 8px;
+        display: grid;
+
+        .task {
+            padding: 8px;
+            display: grid;
+            gap: 4px;
+
+            .task__label {
+            }
+
+            .progress {
+                width: 100%;
+                height: 12px;
+                background: $color-gray5;
+                border-radius: 16px;
+                overflow: hidden;
+
+                .progress__bar {
+                    height: 12px;
+                    border-radius: 16px;
+                    transition: width 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .plate--add {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        display: grid;
+        place-items: center;
+
+        .plus-button {
+            width: 36px;
+            height: 36px;
+            position: relative;
+            border: none;
+            cursor: pointer;
+            background: $color-blue;
+            border-radius: 50%;
+
+            span {
+                position: absolute;
+                background: white;
+                transition: 0.2s;
+                border-radius: 4px;
+            }
+
+            span:first-child {
+                width: 24px;
+                height: 2px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            span:last-child {
+                width: 2px;
+                height: 24px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, max-content);
+        gap: 16px;
+        padding: 16px;
+
+        .plate__label {
+            height: max-content;
+            font-size: 24px;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        .plate--profile {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-auto-rows: max-content;
+            grid-column: 1 / span 2;
+            grid-row: 1;
+
+            p {
+                font-weight: 600;
+                padding: 8px;
+
+                div {
+                    height: 70px;
+                    font-weight: 400 !important;
+                }
+            }
+        }
+
+        .plate--notes {
+            grid-column: 1;
+            grid-row: 2;
+
+            .goal {
+                display: grid;
+                grid-auto-rows: max-content;
+                padding: 8px;
+                grid-template-columns: repeat(2, max-content);
+                gap: 4px;
+                align-items: center;
+
+                .goal__checkbox {
+                    appearance: none;
+                    width: 24px;
+                    height: 24px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+                    border-radius: 50%;
+                    border: 3px solid #ddd;
+                }
+
+                .goal__checkbox:checked {
+                    background-color: $color-blue;
+                }
+
+                .goal__checkbox:checked::after {
+                    content: "";
+                    position: absolute;
+                    width: 6px;
+                    height: 12px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                    left: 50%;
+                    top: 50%;
+                    transform-origin: center;
+                    translate: -50% -60%;
+                }
+
+                .goal__checkbox:checked + .goal__label {
+                    color: $color-gray;
+                    text-decoration: line-through;
+                }
+
+                .goal__label {
+                }
+            }
+        }
+
+        .plate--calendar {
+            .calendar__row {
+                height: 40px;
+                padding: 8px;
+
+                .calendar__time {
+                }
+            }
+
+            .calendar__row:nth-child(odd) {
+                background: $color-gray6;
+            }
+
+            .calendar__row:nth-child(even) {
+                background: $color-gray5;
+            }
+        }
+
+        .plate--tasks {
+            grid-column: 1 / span 2;
+            grid-row: 3;
+            gap: 8px;
+            display: grid;
+
+            .task {
+                padding: 8px;
+                display: grid;
+                gap: 4px;
+
+                .task__label {
+                }
+
+                .progress {
+                    width: 100%;
+                    height: 12px;
+                    background: $color-gray5;
+                    border-radius: 16px;
+                    overflow: hidden;
+
+                    .progress__bar {
+                        height: 12px;
+                        border-radius: 16px;
+                        transition: width 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+
+        .plate--add {
+            display: none;
+        }
+    }
+}

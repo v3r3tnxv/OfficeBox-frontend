@@ -1,5 +1,5 @@
 import "./NavigationMobile.scss";
-import fileIcon from "@/assets/icons/file.svg"
+import folderIcon from "@/assets/icons/folder.svg"
 import contactIcon from "@/assets/icons/contact.svg"
 import messengerIcon from "@/assets/icons/messenger.svg"
 import aiIcon from "@/assets/icons/ai.svg"
@@ -8,11 +8,11 @@ import { NavLink } from "react-router-dom";
 
 export const NavigationMobile = () => {
     const links = [
-        { href: "/files", icon: fileIcon },
+        { href: "/files", icon: folderIcon },
         { href: "/contacts", icon: contactIcon },
         { href: "/messenger", icon: messengerIcon },
         { href: "/ai", icon: aiIcon },
-        { href: "/", icon: dashboardIcon }
+        { href: "/dashboard", icon: dashboardIcon }
     ];
 
     return (

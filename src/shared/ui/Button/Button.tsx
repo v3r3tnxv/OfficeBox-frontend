@@ -2,7 +2,7 @@ import "./Button.scss";
 
 interface ButtonProps {
     label: string;
-    children?: string;
+    children?: React.ReactNode;
     onClick?: () => void;
     disabled?: boolean;
     className?: string;
